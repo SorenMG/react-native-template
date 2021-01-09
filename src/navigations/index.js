@@ -2,14 +2,7 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
-import { Container } from '@components'
-import { Text } from 'react-native'
-
-const Home = () => (
-    <Container>
-        <Text>Home</Text>
-    </Container>
-)
+import { Home } from '@scenes'
 
 const Stack = createStackNavigator()
 

@@ -6,7 +6,7 @@ import { Container } from '@components/index'
 export const Home = () => (
   <View style={styles.container}>
     <Container>
-      <Text>Test</Text>
+      <Text>Home</Text>
     </Container>
     <StatusBar style="auto" />
   </View>
