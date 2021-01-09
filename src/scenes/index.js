@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
 import { Container } from '@components/index'
 import { inject, observer } from 'mobx-react'
 
@@ -10,6 +10,7 @@ const _Home = (props) => {
   return (
     <View style={styles.container}>
       <Container>
+        <TextInput placeholder="Type here" onChangeText={(text) => rootStore.changeText(text)}/>
         <Text>{rootStore.text}</Text>
       </Container>
       <StatusBar style="auto" />
