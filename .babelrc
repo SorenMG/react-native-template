@@ -7,7 +7,14 @@
             "root": ["./src"],
             "extensions": [".js", ".ios.js", ".android.js"],
             "alias": {
-                "@components": "./src/components"
+                "@assets": "./src/assets",
+                "@components": "./src/components",
+                "@navigations": "./src/navigations",
+                "@scenes": "./src/scenes",
+                "@services": "./src/services",
+                "@styles": "./src/styles",
+                "@utils": "./src/utils",
+                "@stores": "./src/stores"
             }
         }]
     ]
