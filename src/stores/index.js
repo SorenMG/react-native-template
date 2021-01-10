@@ -9,7 +9,6 @@ export const RootStore = types
     .actions(self => ({
         changeText(newText) {
             self.text = newText
-            this.save()
         },
         async save() {
             try {
