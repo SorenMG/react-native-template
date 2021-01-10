@@ -1,12 +1,12 @@
 import React from 'react';
-import Navigator from '@navigations';
+import Navigator from '@navigations/RootNavigator';
 import { Provider } from 'mobx-react'
-import { RootStore } from '@stores'
+import { RootStore } from '@stores/RootStore'
 import { View, Platform, StatusBar } from 'react-native'
 import AppLoading from 'expo-app-loading'
 import AsyncStorage from '@react-native-community/async-storage';
 import { applySnapshot } from 'mobx-state-tree';
-import { APPSTATEPERSISTENCEKEY } from '@utils'
+import { APPSTATEPERSISTENCEKEY } from '@utils/Constants'
 import NavigationService from '@utils/NavigationService'
 
 class App extends React.Component {

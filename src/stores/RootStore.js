@@ -1,6 +1,6 @@
 import { types, getSnapshot } from 'mobx-state-tree'
 import { AsyncStorage } from '@react-native-community/async-storage';
-import { APPSTATEPERSISTENCEKEY } from '@utils';
+import { APPSTATEPERSISTENCEKEY } from '@utils/Constants';
 import { UserStore } from './UserStore';
 import { NavigationStore } from './NavigationStore';
 
