@@ -1,11 +1,12 @@
 import { types, getSnapshot } from 'mobx-state-tree'
 import { AsyncStorage } from '@react-native-community/async-storage';
 import { APPSTATEPERSISTENCEKEY } from '@utils';
+import { UserStore } from './UserStore';
 
 export const RootStore = types
     .model('RootStore', {
         id: types.optional(types.identifier, 'RootStore'),
-        text: types.string
+        userStore: types.optional(UserStore, () => UserStore.create())
     })
     .actions(self => ({
         changeText(newText) {
