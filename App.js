@@ -2,6 +2,7 @@ import React from 'react';
 import Navigator from '@navigations';
 import { Provider } from 'mobx-react'
 import { RootStore } from '@stores'
+import { View, Platform, StatusBar } from 'react-native'
 import AppLoading from 'expo-app-loading'
 import AsyncStorage from '@react-native-community/async-storage';
 import { applySnapshot } from 'mobx-state-tree';
@@ -31,7 +32,8 @@ class App extends React.Component {
     else {
       return (
         <Provider rootStore={this.rootStore}>
-          <Navigator/>
+            {Platform.OS === 'ios' && <StatusBar/>}
+            <Navigator/>
         </Provider>
       )
     }
