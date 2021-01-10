@@ -10,7 +10,8 @@ export const RootStore = types
         userStore: types.optional(UserStore, () => UserStore.create()),
         navigationStore: types.optional(NavigationStore, () => 
             NavigationStore.create({ /* Add screens and params here */ })
-        )
+        ),
+        text: types.string
     })
     .actions(self => ({
         changeText(newText) {

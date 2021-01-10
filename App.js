@@ -2,18 +2,22 @@ import React from 'react';
 import Navigator from '@navigations/RootNavigator';
 import { Provider } from 'mobx-react'
 import { RootStore } from '@stores/RootStore'
-import { View, Platform, StatusBar } from 'react-native'
+import { Platform, StatusBar } from 'react-native'
 import AppLoading from 'expo-app-loading'
 import AsyncStorage from '@react-native-community/async-storage';
 import { applySnapshot } from 'mobx-state-tree';
 import { APPSTATEPERSISTENCEKEY } from '@utils/Constants'
 import NavigationService from '@utils/NavigationService'
+import * as Localization from 'expo-localization';
+import { loadVocabularies, setUpLanguage } from '@utils/Localization';
+import { Text } from 'native-base';
+import { I18n } from 'aws-amplify';
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.rootStore = RootStore.create({
-      text: APPSTATEPERSISTENCEKEY
+      text: 'Test'
     })
     NavigationService.setNavigationStore(this.rootStore.navigationStore)
   }
@@ -26,7 +30,7 @@ class App extends React.Component {
     if (!this.state.isLoadingComplete) {
       return (
         <AppLoading
-          startAsync={this._loadPersistedState}
+          startAsync={this._loadResources}
           onError={this._handleLoadingError}
           onFinish={this._handleFinishLoading}
         />
@@ -40,6 +44,16 @@ class App extends React.Component {
         </Provider>
       )
     }
+  }
+
+  _loadResources = async () => {
+    // Localize
+    const locale = Localization.locale
+    console.log(locale)
+    loadVocabularies()
+    setUpLanguage(locale)
+
+    this._loadPersistedState()
   }
 
   _loadPersistedState = async () => {
