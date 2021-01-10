@@ -4,8 +4,6 @@ import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 import { Container } from '@components/Container'
 import { inject, observer } from 'mobx-react'
 import { Input, Item, Label } from 'native-base'
-import { loadVocabularies, setUpLanguage } from '@utils/Localization';
-import * as Localization from 'expo-localization'
 import { I18n } from 'aws-amplify'
 
 const _HomeScreen = (props) => {
@@ -14,7 +12,7 @@ const _HomeScreen = (props) => {
   return (
     <View style={styles.container}>
       <Container>
-        <Label>{I18n.get('Welcome')}</Label>
+        <Label>{I18n.get('welcome')}</Label>
         <Item>
           <Input value={rootStore.text} onChangeText={rootStore.changeText}/>
         </Item>

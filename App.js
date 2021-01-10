@@ -10,8 +10,6 @@ import { APPSTATEPERSISTENCEKEY } from '@utils/Constants'
 import NavigationService from '@utils/NavigationService'
 import * as Localization from 'expo-localization';
 import { loadVocabularies, setUpLanguage } from '@utils/Localization';
-import { Text } from 'native-base';
-import { I18n } from 'aws-amplify';
 
 class App extends React.Component {
   constructor(props) {
@@ -47,7 +45,6 @@ class App extends React.Component {
   }
 
   _loadResources = async () => {
-    // Localize
     const locale = Localization.locale
     console.log(locale)
     loadVocabularies()
