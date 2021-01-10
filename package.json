@@ -22,10 +22,12 @@
     "mobx": "^6.0.4",
     "mobx-react": "^7.0.5",
     "mobx-state-tree": "^5.0.0",
+    "native-base": "^2.15.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
     "react-native-gesture-handler": "~1.8.0",
+    "react-native-layit": "^0.4.0",
     "react-native-reanimated": "~1.13.0",
     "react-native-safe-area-context": "3.1.9",
     "react-native-screens": "~2.15.0",
@@ -33,6 +35,7 @@
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.12.1",
     "babel-loader": "^8.2.2",
     "babel-plugin-module-resolver": "^4.1.0",
     "webpack-merge": "^5.7.3"

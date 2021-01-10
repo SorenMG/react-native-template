@@ -3,11 +3,11 @@ const { merge } = require('webpack-merge');
 
 const babelLoaderConfiguration = {
   test: /\.m?js$/,
-  exclude: /node_modules/,
+  exclude: /node_modules\/(?!(native-base|@codler)\/).*/,
   use: {
     loader: 'babel-loader',
     options: {
-      plugins: ["@babel/plugin-proposal-class-properties"],
+      plugins: ["@babel/plugin-proposal-class-properties", "@babel/plugin-transform-modules-commonjs"],
       presets: [
         ['@babel/preset-env', { targets: "defaults" }]
       ],
