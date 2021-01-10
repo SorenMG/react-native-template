@@ -10,7 +10,7 @@ const _Home = (props) => {
   return (
     <View style={styles.container}>
       <Container>
-        <TextInput placeholder="Type here" onChangeText={(text) => rootStore.changeText(text)}/>
+        <TextInput placeholder="Type here" value={rootStore.text} onChangeText={(text) => rootStore.changeText(text)}/>
         <Text>{rootStore.text}</Text>
       </Container>
       <StatusBar style="auto" />
