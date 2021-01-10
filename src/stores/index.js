@@ -2,11 +2,15 @@ import { types, getSnapshot } from 'mobx-state-tree'
 import { AsyncStorage } from '@react-native-community/async-storage';
 import { APPSTATEPERSISTENCEKEY } from '@utils';
 import { UserStore } from './UserStore';
+import { NavigationStore } from './NavigationStore';
 
 export const RootStore = types
     .model('RootStore', {
         id: types.optional(types.identifier, 'RootStore'),
-        userStore: types.optional(UserStore, () => UserStore.create())
+        userStore: types.optional(UserStore, () => UserStore.create()),
+        navigationStore: types.optional(NavigationStore, () => 
+            NavigationStore.create({ /* Add screens and params here */ })
+        )
     })
     .actions(self => ({
         changeText(newText) {

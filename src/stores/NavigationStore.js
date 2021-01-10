@@ -1,15 +1,14 @@
 import { types, onSnapshot, getRoot } from 'mobx-state-tree';
-import { Repo } from '../models/Repo';
-import { User } from '../models/User';
+import { User } from '@models/User';
 
 const { map, union, safeReference, reference } = types;
 
 const getTypeFromJson = json => {
   const identifier = json.id || json;
-  return identifier.startsWith('repo') ? reference(Repo) : reference(User);
+  return identifier.startsWith('repo') ? null : reference(User);
 };
 export const RouteParam = map(
-  union({ dispatcher: getTypeFromJson }, safeReference(Repo), safeReference(User))
+  union({ dispatcher: getTypeFromJson }, safeReference(User))
 );
 
 export const RouteParams = types.model('RouteParams', {

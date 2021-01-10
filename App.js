@@ -7,6 +7,7 @@ import AppLoading from 'expo-app-loading'
 import AsyncStorage from '@react-native-community/async-storage';
 import { applySnapshot } from 'mobx-state-tree';
 import { APPSTATEPERSISTENCEKEY } from '@utils'
+import NavigationService from '@utils/NavigationService'
 
 class App extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class App extends React.Component {
     this.rootStore = RootStore.create({
       text: APPSTATEPERSISTENCEKEY
     })
+    NavigationService.setNavigationStore(this.rootStore.navigationStore)
   }
 
   state = {

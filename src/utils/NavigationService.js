@@ -1,5 +1,5 @@
-import { NavigationActions } from 'react-navigation';
-import { RouteParams, RouteParam } from '../stores/NavigationStore';
+import { CommonActions } from '@react-navigation/native';
+import { RouteParams, RouteParam } from '@stores/NavigationStore';
 let _navigator, _navStore;
 
 function setTopLevelNavigator(navigatorRef) {
@@ -23,7 +23,7 @@ function navigate(routeName, { params, key }) {
   const routeParams = RouteParams.create({ routeKey: key, params });
   _navStore.setParamsForRoute(routeParams);
   _navigator.dispatch(
-    NavigationActions.navigate({
+    CommonActions.navigate({
       routeName,
       key,
     })
@@ -35,5 +35,4 @@ export default {
   setTopLevelNavigator,
   setNavigationStore,
   generateUid,
-  navigateToUserScreen,
 };
