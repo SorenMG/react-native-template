@@ -1,5 +1,6 @@
 import { types, getSnapshot } from 'mobx-state-tree'
 import { AsyncStorage } from '@react-native-community/async-storage';
+import { APPSTATEPERSISTENCEKEY } from '@utils';
 
 export const RootStore = types
     .model('RootStore', {
@@ -15,7 +16,7 @@ export const RootStore = types
                 const transformedSnapshot = getSnapshot(self);
                 const json = JSON.stringify(transformedSnapshot)
 
-                await AsyncStorage.setItem('appStatePersistenceKey', json);
+                await AsyncStorage.setItem(APPSTATEPERSISTENCEKEY, json);
             } catch (err) {
                 console.warn('unexpected error ' + err);
             }

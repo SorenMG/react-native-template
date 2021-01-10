@@ -6,12 +6,13 @@ import { View, Platform, StatusBar } from 'react-native'
 import AppLoading from 'expo-app-loading'
 import AsyncStorage from '@react-native-community/async-storage';
 import { applySnapshot } from 'mobx-state-tree';
+import { APPSTATEPERSISTENCEKEY } from '@utils'
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.rootStore = RootStore.create({
-      text: 'tex'
+      text: APPSTATEPERSISTENCEKEY
     })
   }
 
@@ -40,7 +41,7 @@ class App extends React.Component {
   }
 
   _loadPersistedState = async () => {
-    const retrievedState = await AsyncStorage.getItem('appStatePersistenceKey')
+    const retrievedState = await AsyncStorage.getItem(APPSTATEPERSISTENCEKEY)
 
     if (retrievedState) {
       const rootStoreJson = JSON.parse(retrievedState)
