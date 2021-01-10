@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, TextInput } from 'react-native';
 import { Container } from '@components/index'
 import { inject, observer } from 'mobx-react'
 
-const _Home = (props) => {
+const _HomeScreen = (props) => {
   const { rootStore } = props
 
   return (
@@ -27,6 +27,6 @@ const styles = StyleSheet.create({
   },
 });
 
-export const Home = inject(({ rootStore }) => ({
+export const HomeScreen = inject(({ rootStore }) => ({
   rootStore
-}))(observer(_Home))
+}))(observer(_HomeScreen))
