@@ -10,6 +10,7 @@ import { APPSTATEPERSISTENCEKEY } from '@utils/Constants'
 import NavigationService from '@utils/NavigationService'
 import * as Localization from 'expo-localization';
 import { loadVocabularies, setUpLanguage } from '@utils/Localization';
+import { Root } from 'native-base';
 
 class App extends React.Component {
   constructor(props) {
@@ -37,8 +38,10 @@ class App extends React.Component {
     else {
       return (
         <Provider rootStore={this.rootStore}>
+          <Root>
             {Platform.OS === 'ios' && <StatusBar/>}
             <Navigator/>
+          </Root>
         </Provider>
       )
     }
