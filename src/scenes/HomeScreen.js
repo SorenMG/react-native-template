@@ -1,19 +1,18 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import { Container } from '@components/Container'
 import { inject, observer } from 'mobx-react'
-import { Input, Item, Label, Toast } from 'native-base'
+import { Input, Item, Label } from 'native-base'
 import { I18n } from 'aws-amplify'
-import { showSuccess } from '../utils/Toast';
+import { showSuccess } from '@utils/Toast'
 
 const _HomeScreen = (props) => {
   const { rootStore } = props
 
-  showSuccess('This is the first Toast')
-
   return (
     <View style={styles.container}>
+      <Button title="Show Toast" onPress={() => showSuccess('This is a Toast 👋')}/>
       <Container>
         <Label>{I18n.get('welcome')}</Label>
         <Item>

@@ -36,20 +36,24 @@ class App extends React.Component {
       )
     }
     else {
-      return (
+      if (Platform.OS === 'web') return (
         <Provider rootStore={this.rootStore}>
-          <Root>
+            <Navigator/>
+        </Provider>
+      )
+      return (
+        <Root>
+          <Provider rootStore={this.rootStore}>
             {Platform.OS === 'ios' && <StatusBar/>}
             <Navigator/>
-          </Root>
-        </Provider>
+          </Provider>
+        </Root>
       )
     }
   }
 
   _loadResources = async () => {
     const locale = Localization.locale
-    console.log(locale)
     loadVocabularies()
     setUpLanguage(locale)
 

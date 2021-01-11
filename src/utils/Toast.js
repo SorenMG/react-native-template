@@ -1,25 +1,31 @@
 import { Toast } from "native-base";
+import { Platform } from "react-native";
+
+const DURATION = 2000
 
 export function showWarning(description) {
-    Toast.show({
+    Platform.OS !== 'web' && Toast.show({
         text: "Warning: " + description,
         type: 'warning',
-        buttonText: 'Ok'
+        buttonText: 'OK',
+        duration: DURATION
     })
 }
 
 export function showSuccess(description) {
-    Toast.show({
+    Platform.OS !== 'web' && Toast.show({
         text: 'Success: ' + description,
         type: 'success',
-        buttonText: 'Ok'
+        buttonText: 'OK',
+        duration: DURATION,
     })
 }
 
 export function showError(description) {
-    Toast.show({
+    Platform.OS !== 'web' && Toast.show({
         text: "Error: " + description,
         type: 'danger',
-        buttonText: 'Ok'
+        buttonText: 'OK',
+        duration: DURATION
     })
 }
